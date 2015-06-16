@@ -79,8 +79,8 @@
                         </goals>
                         <configuration>
                             <target>
-                                <echo message="unzip archive" />
-                                <unzip src="${project.build.directory}/${upstreamVersion}.zip" dest="${project.build.directory}" />
+                                <echo message="unzip archive"/>
+                                <unzip src="${project.build.directory}/${upstreamVersion}.zip" dest="${project.build.directory}"/>
 
                                 <echo message="moving resources" />
                                 <move file="${extractDir}/package.json" toDir="${destDir}" />
