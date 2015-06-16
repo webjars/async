@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>async</artifactId>
-    <version>0.9.1-SNAPSHOT</version>
+    <version>1.2.1-SNAPSHOT</version>
     <name>async</name>
     <description>WebJar for async</description>
     <url>http://webjars.org</url>
@@ -40,7 +40,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>0.9.0</upstreamVersion>
+        <upstreamVersion>1.2.1</upstreamVersion>
         <upstream.url>https://github.com/caolan/async</upstream.url>
         <extractDir>${project.build.directory}/async-${upstreamVersion}</extractDir>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
@@ -84,7 +84,7 @@
 
                                 <echo message="moving resources" />
                                 <move file="${extractDir}/package.json" toDir="${destDir}" />
-                                <move file="${extractDir}/lib" toDir="${destDir}" />
+                                <move file="${extractDir}/lib/async.js" toDir="${destDir}" />
                             </target>
                         </configuration>
                     </execution>
