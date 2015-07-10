@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>async</artifactId>
-    <version>1.2.2-SNAPSHOT</version>
+    <version>1.3.0-SNAPSHOT</version>
     <name>async</name>
     <description>WebJar for async</description>
     <url>http://webjars.org</url>
@@ -36,16 +36,20 @@
             <id>huntchr</id>
             <name>Christopher Hunt</name>
         </developer>
+        <developer>
+            <id>TryIO</id>
+            <name>Luca Guadagnini</name>
+        </developer>
     </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>1.2.1</upstreamVersion>
+        <upstreamVersion>1.3.0</upstreamVersion>
         <upstream.url>https://github.com/caolan/async</upstream.url>
         <extractDir>${project.build.directory}/async-${upstreamVersion}</extractDir>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
     </properties>
-    
+
     <build>
         <plugins>
             <plugin>
@@ -61,7 +65,7 @@
                         </goals>
                         <configuration>
                             <url>${upstream.url}/archive</url>
-                            <fromFile>${upstreamVersion}.zip</fromFile>
+                            <fromFile>v${upstreamVersion}.zip</fromFile>
                             <toDir>${project.build.directory}</toDir>
                         </configuration>
                     </execution>
@@ -79,12 +83,13 @@
                         </goals>
                         <configuration>
                             <target>
-                                <echo message="unzip archive" />
-                                <unzip src="${project.build.directory}/${upstreamVersion}.zip" dest="${project.build.directory}" />
+                                <echo message="unzip archive"/>
+                                <unzip src="${project.build.directory}/v${upstreamVersion}.zip" dest="${project.build.directory}"/>
 
-                                <echo message="moving resources" />
-                                <move file="${extractDir}/package.json" toDir="${destDir}" />
-                                <move file="${extractDir}/lib/async.js" toDir="${destDir}" />
+                                <echo message="moving resources"/>
+                                <move file="${extractDir}/package.json" toDir="${destDir}"/>
+                                <move file="${extractDir}/lib/async.js" toDir="${destDir}"/>
+                                <move file="${extractDir}/dist/async.min.js" toDir="${destDir}"/>
                             </target>
                         </configuration>
                     </execution>
